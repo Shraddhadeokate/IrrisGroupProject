@@ -1,6 +1,5 @@
 package com.config;
 
-import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -9,7 +8,6 @@ import com.util.Environment;
 
 public class TestBase 
 {
-	private static Logger log = Logger.getLogger(TestBase.class);
 	@BeforeMethod
 	public void setUp() throws Exception
 	{
@@ -17,12 +15,12 @@ public class TestBase
 		if(browserName == null)
 		{
 			browserName = "Chrome";
-			log.info("Set chrome as default browser");
+			System.out.println("Set chrome as default browser");
 		}
 		if(browserName.isEmpty())
 		{
 			browserName = "Chrome";
-			log.info("Set chrome as default browser");
+			System.out.println("Set chrome as default browser");
 		}
 		UIKeyword.openBrowser(browserName);
 		UIKeyword.launchUrl(Environment.url);
@@ -31,7 +29,7 @@ public class TestBase
 	@AfterMethod
 	public void closeUP()  throws Exception
 	{	
-		UIKeyword.closeBrowser();
+//		UIKeyword.closeBrowser();
 	}
 	
 }

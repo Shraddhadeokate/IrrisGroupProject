@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,12 +14,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class UIKeyword 
 {
 	public static RemoteWebDriver driver;
-	private static Logger log = Logger.getLogger(UIKeyword.class);
 	public static void openBrowser(String browserName) 
 	{
 		if(browserName.equalsIgnoreCase("chrome"))
@@ -43,20 +43,21 @@ public class UIKeyword
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}
-		log.info(browserName+" is launched");
+		System.out.println(browserName+" is launched");
+		
 	}
 	
 	public static void launchUrl(String url) 
 	{
 		driver.get(url);
-		log.info("Url launched :"+url);
+		System.out.println("Url launched :"+url);
 //		driver.manage().window().maximize();    // maximize the browser window
 	}
 	
 	public static void closeBrowser() 
 	{
 		driver.close();
-		log.info("Browser closed");
+		System.out.println("Browser closed");
 	}
 	
 	/**
@@ -128,7 +129,7 @@ public class UIKeyword
 			}
 			else
 			{
-				log.error("Invalid locator type: "+locatorValue);
+				System.err.println("Invalid locator type: "+locatorValue);
 			}
 		return element;
 	}
@@ -166,7 +167,7 @@ public class UIKeyword
 			}
 			else
 			{
-				log.error("Invalid locator type: "+locatorValue);
+				System.err.println("Invalid locator type: "+locatorValue);
 			}
 		return elements;
 	}
@@ -176,6 +177,8 @@ public class UIKeyword
 	{
 		driver.findElement(xpath).click();
 	}
+	
+//	@Deprecated
 	public static void click(WebElement element) 
 	{
 		element.click();
@@ -195,7 +198,7 @@ public class UIKeyword
 	
 	public static void mousemove(WebElement element) 
 	{
-		Actions action = new Actions(UIKeyword.driver);
+		Actions action = new Actions(UIKeyword.driver);		
 		action.moveToElement(element).build().perform();
 	}
 	
@@ -232,7 +235,7 @@ public class UIKeyword
 		{
 			if(driver.switchTo().window(window).getTitle().equals(byTitle))
 			{
-				log.info("Switched on window: "+byTitle);
+				System.out.println("Switched on window: "+byTitle);
 				break;
 			}
 		}

@@ -5,13 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
-
 //import config.TestBase;
 
 public class PropertiesUtil 
 {
-	private static Logger log = Logger.getLogger(PropertiesUtil.class);
 	public String getValue(String filePath , String key) 
 	{
 		FileInputStream fis = null;
@@ -21,7 +18,7 @@ public class PropertiesUtil
 		}
 		catch(FileNotFoundException e)
 		{
-			log.error("File not found : " +filePath);
+			System.err.println("File not found : " +filePath);
 		}
 		Properties prop = new Properties();
 		try 
@@ -30,7 +27,7 @@ public class PropertiesUtil
 		} 
 		catch (IOException e) 
 		{
-			log.error("Unable to load properties file : "+filePath);		
+			System.err.println("Unable to load properties file : "+filePath);		
 		}
 		return prop.getProperty(key);
 	}

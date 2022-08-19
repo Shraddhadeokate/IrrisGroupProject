@@ -5,8 +5,8 @@
     <classes>
       <class name="com.hometests.HomeTests">
         <methods>
-          <include name="launch_homepage"/>
           <include name="closeUP"/>
+          <include name="click_toggle_button"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.hometests.HomeTests -->
