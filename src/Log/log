@@ -1,0 +1,6 @@
+2022-Aug-19 12:30:17,285 [main] com.irris22akeyword.UIKeyword 
+  INFO  chrome is launched
+2022-Aug-19 12:30:23,496 [main] com.irris22akeyword.UIKeyword 
+  INFO  Url launched :https://byjus.com/
+2022-Aug-19 12:30:25,902 [main] com.irris22akeyword.UIKeyword 
+  INFO  Browser closed

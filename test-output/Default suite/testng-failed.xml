@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.irris22a.ProductTests">
+      <class name="com.hometests.HomeTests">
         <methods>
-          <include name="tearDown"/>
-          <include name="verifySearchResultForPoloMean"/>
+          <include name="launch_homepage"/>
+          <include name="closeUP"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.irris22a.ProductTests -->
+      </class> <!-- com.hometests.HomeTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

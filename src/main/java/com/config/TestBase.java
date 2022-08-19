@@ -1,29 +1,37 @@
 package com.config;
 
+import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 
 import com.irris22akeyword.UIKeyword;
+import com.util.Environment;
 
-public class TestBase {
-	@Parameters("browser-name")
+public class TestBase 
+{
+	private static Logger log = Logger.getLogger(TestBase.class);
 	@BeforeMethod
-	public void setUp(@Optional String browserName) throws Exception {
-		if (browserName == null)
+	public void setUp() throws Exception
+	{
+		String browserName = Environment.browser;
+		if(browserName == null)
 		{
 			browserName = "Chrome";
+			log.info("Set chrome as default browser");
 		}
-		if (browserName.isEmpty()) {
+		if(browserName.isEmpty())
+		{
 			browserName = "Chrome";
-			System.out.println("setting default browser is chrome");
+			log.info("Set chrome as default browser");
 		}
 		UIKeyword.openBrowser(browserName);
+		UIKeyword.launchUrl(Environment.url);
 	}
-   @AfterMethod
-	public void tearDown() {
+	
+	@AfterMethod
+	public void closeUP()  throws Exception
+	{	
 		UIKeyword.closeBrowser();
 	}
+	
 }
- 
