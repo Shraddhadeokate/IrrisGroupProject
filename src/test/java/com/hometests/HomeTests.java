@@ -13,6 +13,16 @@ public class HomeTests extends TestBase
 	@Test
 	public void click_toggle_button() 
 	{
-		home.click_toggle_below_768px();
+		home.click_on_toggle();
+	}
+	@Test
+	public void open_jee_main() 
+	{
+		home.openJeeMain();
+	}
+	@Test
+	public void open_percentage_calculator() 
+	{
+		home.percentageCalculator();
 	}
 }

@@ -229,8 +229,9 @@ public class UIKeyword
 	public static void switchToWindow(String byTitle) 
 	{
 //		String parentWindow = driver.getWindowHandle();
-		Set<String> windows = driver.getWindowHandles();
 //		String title = driver.getTitle();
+
+		Set<String> windows = driver.getWindowHandles();
 		for(String window : windows)
 		{
 			if(driver.switchTo().window(window).getTitle().equals(byTitle))
