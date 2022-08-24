@@ -25,4 +25,11 @@ public class HomeTests extends TestBase
 	{
 		home.percentageCalculator();
 	}
+	@Test
+	public void click_on_search() 
+	{
+		home.clickSearch();
+	}
+	
+	
 }

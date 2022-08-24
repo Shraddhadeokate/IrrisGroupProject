@@ -2,6 +2,7 @@ package com.util;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -56,7 +57,6 @@ public class WaitFor
 		}
 	}
 
-	public static void elementToBeClickable(WebElement element) 
 	{
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}

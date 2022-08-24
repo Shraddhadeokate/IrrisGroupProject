@@ -1,5 +1,6 @@
 package com.pages;
 
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 import org.openqa.selenium.Dimension;
@@ -33,6 +34,10 @@ public class HomePage
 	public WebElement basic_calc;
 	@FindBy (xpath = "//a[contains(text(),'Percentage Calculator')]")
 	public WebElement percentage;
+	@FindBy (css = "li.primary-search>div.search-bar")
+	public WebElement search;
+	@FindBy (css = "li.primary-search>div.search-bar input[placeholder='Type your search']")
+	public WebElement searchBox;
 	
 	public void ckeckDimension(WebElement element)
 	{
@@ -92,6 +97,14 @@ public class HomePage
 		UIKeyword.mousemove(calculators);
 		UIKeyword.mousemove(basic_calc);
 		percentage.click();
+	}
+
+	public void clickSearch() 
+	{
+		PageFactory.initElements(UIKeyword.driver, this);
+		search.click();
+		searchBox.sendKeys("akshay");
+		UIKeyword.hitButton(KeyEvent.VK_ENTER);
 	}
 
 }
