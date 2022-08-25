@@ -56,9 +56,5 @@ public class WaitFor
 			startTime = System.currentTimeMillis();
 		}
 	}
-
-	{
-		wait.until(ExpectedConditions.elementToBeClickable(element));
-	}
 	
 }

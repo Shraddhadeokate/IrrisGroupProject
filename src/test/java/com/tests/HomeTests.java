@@ -1,4 +1,4 @@
-package com.hometests;
+package com.tests;
 
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
@@ -10,6 +10,7 @@ import com.pages.HomePage;
 public class HomeTests extends TestBase
 {
 	HomePage home = PageFactory.initElements(UIKeyword.driver, HomePage.class);
+	LoginTests login = new LoginTests();
 	@Test
 	public void click_toggle_button() 
 	{
@@ -29,6 +30,12 @@ public class HomeTests extends TestBase
 	public void click_on_search() 
 	{
 		home.clickSearch();
+	}
+	
+	@Test
+	public void click_on_login()
+	{
+		login.click_on_signup();
 	}
 	
 	

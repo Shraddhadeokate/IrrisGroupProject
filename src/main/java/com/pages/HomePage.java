@@ -38,6 +38,8 @@ public class HomePage
 	public WebElement search;
 	@FindBy (css = "li.primary-search>div.search-bar input[placeholder='Type your search']")
 	public WebElement searchBox;
+	@FindBy (xpath ="//li[@class='no-separator nav-spacing']")
+	public WebElement login; 
 	
 	public void ckeckDimension(WebElement element)
 	{
@@ -105,6 +107,12 @@ public class HomePage
 		search.click();
 		searchBox.sendKeys("akshay");
 		UIKeyword.hitButton(KeyEvent.VK_ENTER);
+	}
+
+	public void clickLogin() 
+	{
+		PageFactory.initElements(UIKeyword.driver, this);
+		login.click();
 	}
 
 }
